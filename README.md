@@ -1,5 +1,5 @@
 <h1 align="center">Hi 👋, I'm Belal Naeim</h1>
-<h3 align="center">A passionate BAckend developer from Egypt</h3>
+<h3 align="center">A passionate Backend developer from Egypt</h3>
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=belalnaeim&label=Profile%20views&color=0e75b6&style=flat" alt="belalnaeim" /> </p>
 
