@@ -1,0 +1,24 @@
+{
+    "1": {
+        "title": {
+            "ar":"هذا النص مثال يمكن أن يستبدل.",
+            "en":"This text is an example that can be replaced."
+        },
+        "desc":{
+            "ar":"هذا النص مثال يمكن أن يستبدل. هذا النص مثال يمكن أن يستبدل.",
+            "en":"This text is an example that can be replaced. This text is an example that can be replaced."
+        },
+        "image": "intro1.png"
+    },
+    "2": {
+        "title": {
+            "ar":"هذا النص مثال يمكن أن يستبدل ٢.",
+            "en":"This text is an example that can be replaced 2."
+        },
+        "desc":{
+            "ar":"هذا النص مثال يمكن أن يستبدل. هذا النص مثال يمكن أن يستبدل ٢.",
+            "en":"This text is an example that can be replaced. This text is an example that can be replaced 2."
+        },
+        "image": "intro2.png"
+    }
+}

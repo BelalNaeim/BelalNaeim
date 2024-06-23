@@ -1,0 +1,143 @@
+name: Reservation
+description: ''
+endpoints:
+  -
+    httpMethods:
+      0: GET
+      2: POST
+      3: PUT
+      4: PATCH
+      5: DELETE
+      6: OPTIONS
+    uri: api/playgrounds/check-time
+    metadata:
+      title: 'Check Available Timings.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      playground_id:
+        name: playground_id
+        description: 'The playground id.'
+        required: true
+        example: 0
+        type: integer
+        custom: []
+      date:
+        name: date
+        description: 'The date of the reservation.'
+        required: true
+        example: '"2020-01-01".'
+        type: string
+        custom: []
+    responses:
+      -
+        status: 422
+        content: '{"message":"\u0627\u0644\u0642\u064a\u0645\u0629 \u0627\u0644\u0645\u062d\u062f\u062f\u0629 playground id \u063a\u064a\u0631 \u0645\u0648\u062c\u0648\u062f\u0629. (and 2 more errors)","errors":{"playground_id":["\u0627\u0644\u0642\u064a\u0645\u0629 \u0627\u0644\u0645\u062d\u062f\u062f\u0629 playground id \u063a\u064a\u0631 \u0645\u0648\u062c\u0648\u062f\u0629."],"date":["\u062d\u0642\u0644 date \u0644\u064a\u0633 \u062a\u0627\u0631\u064a\u062e\u064b\u0627 \u0635\u062d\u064a\u062d\u064b\u0627.","\u064a\u062c\u0628 \u0639\u0644\u0649 \u062d\u0642\u0644 date \u0623\u0646 \u064a\u0643\u0648\u0646 \u062a\u0627\u0631\u064a\u062e\u064b\u0627 \u0644\u0627\u062d\u0642\u064b\u0627 \u0644\u0644\u062a\u0627\u0631\u064a\u062e yesterday."]}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '57'
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/playgrounds/reserve
+    metadata:
+      title: 'Reserve a playground.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      playground_id:
+        name: playground_id
+        description: 'The playground id.'
+        required: true
+        example: 0
+        type: integer
+        custom: []
+      date:
+        name: date
+        description: 'The date of the reservation.'
+        required: true
+        example: '"2020-01-01".'
+        type: string
+        custom: []
+      time:
+        name: time
+        description: 'required_without:times The time of the reservation.'
+        required: false
+        example: '"00:00:00".'
+        type: string
+        custom: []
+      times:
+        name: times
+        description: 'required_without:time The times (as array) of the reservation.'
+        required: false
+        example:
+          - tenetur
+        type: 'string[]'
+        custom: []
+      payment_method:
+        name: payment_method
+        description: 'Must be one of <code>cash</code>.'
+        required: true
+        example: cash
+        type: string
+        custom: []
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/auth/reservations
+    metadata:
+      title: 'Get all reservations.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters: []
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/auth/reservations/cancel
+    metadata:
+      title: 'Cancel Reservation.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      reservation_id:
+        name: reservation_id
+        description: 'The reservation id.'
+        required: true
+        example: 0
+        type: integer
+        custom: []
+    responses: []
+    responseFields: []

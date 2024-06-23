@@ -1,0 +1,14 @@
+{
+    "1": {
+        "productfeature_id":1,
+        "properity_id":1
+    },
+    "2": {
+        "productfeature_id":1,
+        "properity_id":2
+    },
+    "3": {
+        "productfeature_id":1,
+        "properity_id":3
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "1": {
+        "reason": {
+            "ar":"سبب إلغاء إفتراضي",
+            "en":"Default cancel reason"
+        },
+        "type":"cancel"
+    },
+    "2": {
+        "reason": {
+            "ar":"سبب إنسحاب إفتراضي",
+            "en":"Default withdraw reason"
+        },
+        "type":"withdraw"
+    },
+    "3": {
+        "reason": {
+            "ar":"سبب إبلاغ إفتراضي",
+            "en":"Default report reason"
+        },
+        "type":"report"
+    }
+}

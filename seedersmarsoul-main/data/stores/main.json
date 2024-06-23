@@ -1,0 +1,41 @@
+{
+    "1": {
+        "store_id":null,
+        "name": {
+            "ar":"ماكدونالز",
+            "en":"McDonald's"
+        },
+        "icon": "icon.png",
+        "cover" : "cover.png",
+        "lat" : "31.0325144",
+        "long" : "31.3964207",
+        "address" : "المنصورة لوكيشن ١",
+        "category" : "restaurants"
+    },
+    "2": {
+        "store_id":null,
+        "name": {
+            "ar":"البيك",
+            "en":"Albaik"
+        },
+        "icon": "icon.png",
+        "cover" : "cover.png",
+        "lat" : "30.9791057",
+        "long" : "31.4420974",
+        "address" : "المنصورة لوكيشن ٢",
+        "category" : "restaurants"
+    },
+    "3": {
+        "store_id":2,
+        "name": {
+            "ar":"البيك",
+            "en":"Albaik"
+        },
+        "icon": "icon.png",
+        "cover" : "cover.png",
+        "lat" : "30.9933083",
+        "long" : "31.4815804",
+        "address" : "المنصورة لوكيشن ٣",
+        "category" : "restaurants"
+    }
+}

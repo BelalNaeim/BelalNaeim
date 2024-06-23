@@ -1,0 +1,817 @@
+openapi: 3.0.3
+info:
+  title: Laravel
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'https://tartan.aquadic.com'
+paths:
+  /api/auth/signup:
+    post:
+      summary: 'SignUp User and return JWT Token'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'User Name'
+                  example: 'John Doe'
+                email:
+                  type: string
+                  description: 'required_without:phone User Email'
+                  example: medical@aquadic.com
+                phone:
+                  type: string
+                  description: 'required_without:email User Phone'
+                  example: '+201101782890'
+                password:
+                  type: string
+                  description: 'User Password'
+                  example: JamesBond007
+              required:
+                - name
+                - password
+      security: []
+  /api/auth/login:
+    post:
+      summary: 'Login User and return JWT Token'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  description: 'User Email/Phone'
+                  example: medical@aquadic.com
+                password:
+                  type: string
+                  description: 'User Password'
+                  example: JamesBond007
+              required:
+                - username
+                - password
+      security: []
+  /api/auth/re-verify:
+    post:
+      summary: 'Re-Send Verification Code to User Phone / Email'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Auth
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'required_without:phone User Email'
+                  example: medical@aquadic.com
+                phone:
+                  type: string
+                  description: 'required_without:email User Phone'
+                  example: '+201101782890'
+      security: []
+  /api/auth/verify:
+    post:
+      summary: 'Verify User Phone / Email'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'required_without:phone User Email'
+                  example: medical@aquadic.com
+                phone:
+                  type: string
+                  description: 'required_without:email User Phone'
+                  example: '+201101782890'
+                code:
+                  type: string
+                  description: 'User Phone Code'
+                  example: '123456'
+              required:
+                - code
+      security: []
+  /api/auth/forget:
+    post:
+      summary: 'Forget Password'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'User Email'
+                  example: medical@aquadic.com
+                phone:
+                  type: string
+                  description: 'User Phone'
+                  example: '+201101782890'
+              required:
+                - email
+                - phone
+      security: []
+  /api/auth/reset:
+    post:
+      summary: 'Reset Password'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'required_without:phone User Email'
+                  example: medical@aquadic.com
+                phone:
+                  type: string
+                  description: 'required_without:email User Phone'
+                  example: '+201101782890'
+                code:
+                  type: string
+                  description: 'User Phone Code'
+                  example: '123456'
+                password:
+                  type: string
+                  description: 'User Password'
+                  example: '123456'
+                password_confirmation:
+                  type: string
+                  description: 'User Password Confirmation'
+                  example: '123456'
+              required:
+                - code
+                - password
+                - password_confirmation
+      security: []
+  /api/auth/user:
+    get:
+      summary: 'Get User Details'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Auth
+  /api/auth/logout:
+    post:
+      summary: 'Logging Out User.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Auth
+  /api/auth/update:
+    post:
+      summary: 'Update Profile'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'User Name'
+                  example: 'John Doe'
+                email:
+                  type: string
+                  description: 'sometimes User Email'
+                  example: medical@aquadic.com
+                phone:
+                  type: string
+                  description: 'sometimes User Phone'
+                  example: '+201101782890'
+                password:
+                  type: string
+                  description: 'nullable User Password'
+                  example: '123456'
+                old_password:
+                  type: string
+                  description: 'حقل value مطلوب إذا توفّر <code>password</code>. يجب أن يكون طول نص حقل value على الأقل 6 حروفٍ/حرفًا. يجب أن لا يتجاوز طول نّص حقل value 256 حروفٍ/حرفًا.'
+                  example: spadurpmcdafbnqffgkqlzxvcvwsrivztbsrpjbfmuidfrdbshylphwmurfdmnlnoekykbzkocqlfmicszdoubqzyimkmgpsrzqilmgnmygx
+                description:
+                  type: string
+                  description: 'sometimes Description of Doctors'
+                  example: 'Best Doctor Ever.'
+                profession:
+                  type: string
+                  description: 'sometimes Profession of Doctors'
+                  example: 'Diet Doctor'
+                work_times:
+                  type: array
+                  description: 'Work Times for Doctors'
+                  example:
+                    - vero
+                  items:
+                    type: string
+                password_confirmation:
+                  type: nullable
+                  description: 'User Password Confirmation'
+                  example: '123456'
+              required:
+                - name
+                - work_times
+  /api/contact:
+    post:
+      summary: 'Submit Contact us request'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Contactus.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: integer
+                  description: 'name of person.'
+                  example: 11
+                email:
+                  type: string
+                  description: 'nullable email of person.'
+                  example: ex
+                phone:
+                  type: string
+                  description: 'nullable phone of person.'
+                  example: et
+                message:
+                  type: string
+                  description: 'message of person.'
+                  example: et
+              required:
+                - name
+                - message
+      security: []
+  /api/data:
+    get:
+      summary: 'Returns Application Needed Data'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  about_ar: 'عن Laravel'
+                  about_en: 'about Laravel'
+                properties:
+                  about_ar:
+                    type: string
+                    example: 'عن Laravel'
+                  about_en:
+                    type: string
+                    example: 'about Laravel'
+      tags:
+        - General
+      security: []
+  /api/playgrounds:
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: query
+          name: keyword
+          description: 'optional The playground name.'
+          example: '"Somuha".'
+          required: false
+          schema:
+            type: string
+            description: 'optional The playground name.'
+            example: '"Somuha".'
+        -
+          in: query
+          name: lat
+          description: 'optional The lat of the client.'
+          example: '"31.5656".'
+          required: false
+          schema:
+            type: string
+            description: 'optional The lat of the client.'
+            example: '"31.5656".'
+        -
+          in: query
+          name: lng
+          description: 'optional The lng of the client.'
+          example: '"-29.5656".'
+          required: false
+          schema:
+            type: string
+            description: 'optional The lng of the client.'
+            example: '"-29.5656".'
+        -
+          in: query
+          name: city_id
+          description: 'optional The id of the city.'
+          example: '"1".'
+          required: false
+          schema:
+            type: string
+            description: 'optional The id of the city.'
+            example: '"1".'
+        -
+          in: query
+          name: area_id
+          description: 'optional The id of the city.'
+          example: '"2".'
+          required: false
+          schema:
+            type: string
+            description: 'optional The id of the city.'
+            example: '"2".'
+        -
+          in: query
+          name: time
+          description: 'optional The time of the reservation.'
+          example: '"12:00:00".'
+          required: false
+          schema:
+            type: string
+            description: 'optional The time of the reservation.'
+            example: '"12:00:00".'
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  current_page: 1
+                  data: []
+                  first_page_url: 'http://localhost/api/playgrounds?page=1'
+                  from: null
+                  next_page_url: null
+                  path: 'http://localhost/api/playgrounds'
+                  per_page: 15
+                  prev_page_url: null
+                  to: null
+                properties:
+                  current_page:
+                    type: integer
+                    example: 1
+                  data:
+                    type: array
+                    example: []
+                  first_page_url:
+                    type: string
+                    example: 'http://localhost/api/playgrounds?page=1'
+                  from:
+                    type: string
+                    example: null
+                  next_page_url:
+                    type: string
+                    example: null
+                  path:
+                    type: string
+                    example: 'http://localhost/api/playgrounds'
+                  per_page:
+                    type: integer
+                    example: 15
+                  prev_page_url:
+                    type: string
+                    example: null
+                  to:
+                    type: string
+                    example: null
+      tags:
+        - Playgrounds
+      security: []
+  /api/playgrounds/check-time:
+    get:
+      summary: 'Check Available Timings.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'القيمة المحددة playground id غير موجودة. (and 2 more errors)'
+                  errors:
+                    playground_id:
+                      - 'القيمة المحددة playground id غير موجودة.'
+                    date:
+                      - 'حقل date ليس تاريخًا صحيحًا.'
+                      - 'يجب على حقل date أن يكون تاريخًا لاحقًا للتاريخ yesterday.'
+                properties:
+                  message:
+                    type: string
+                    example: 'القيمة المحددة playground id غير موجودة. (and 2 more errors)'
+                  errors:
+                    type: object
+                    example:
+                      playground_id:
+                        - 'القيمة المحددة playground id غير موجودة.'
+                      date:
+                        - 'حقل date ليس تاريخًا صحيحًا.'
+                        - 'يجب على حقل date أن يكون تاريخًا لاحقًا للتاريخ yesterday.'
+      tags:
+        - Reservation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                playground_id:
+                  type: integer
+                  description: 'The playground id.'
+                  example: 0
+                date:
+                  type: string
+                  description: 'The date of the reservation.'
+                  example: '"2020-01-01".'
+              required:
+                - playground_id
+                - date
+      security: []
+  /api/playgrounds/reserve:
+    post:
+      summary: 'Reserve a playground.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Reservation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                playground_id:
+                  type: integer
+                  description: 'The playground id.'
+                  example: 0
+                date:
+                  type: string
+                  description: 'The date of the reservation.'
+                  example: '"2020-01-01".'
+                time:
+                  type: string
+                  description: 'required_without:times The time of the reservation.'
+                  example: '"00:00:00".'
+                times:
+                  type: array
+                  description: 'required_without:time The times (as array) of the reservation.'
+                  example:
+                    - tenetur
+                  items:
+                    type: string
+                payment_method:
+                  type: string
+                  description: 'Must be one of <code>cash</code>.'
+                  example: cash
+              required:
+                - playground_id
+                - date
+                - payment_method
+      security: []
+  /api/auth/reservations:
+    post:
+      summary: 'Get all reservations.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Reservation
+      security: []
+  /api/auth/reservations/cancel:
+    post:
+      summary: 'Cancel Reservation.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Reservation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                reservation_id:
+                  type: integer
+                  description: 'The reservation id.'
+                  example: 0
+              required:
+                - reservation_id
+      security: []
+tags:
+  -
+    name: Auth
+    description: ''
+  -
+    name: Contactus.
+    description: ''
+  -
+    name: General
+    description: ''
+  -
+    name: Playgrounds
+    description: ''
+  -
+    name: Reservation
+    description: ''

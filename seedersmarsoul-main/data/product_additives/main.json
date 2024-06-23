@@ -1,0 +1,29 @@
+{
+    "1": {
+        "name": {
+            "ar":"بيبسي",
+            "en":"Pepsi"
+        },
+        "price":5,
+        "product_id":1,
+        "product_additive_category_id":1
+    },
+    "2": {
+        "name": {
+            "ar":"سيفين أب",
+            "en":"Seven up"
+        },
+        "price":5,
+        "product_id":1,
+        "product_additive_category_id":1
+    },
+    "3": {
+        "name": {
+            "ar":"مياة",
+            "en":"Water"
+        },
+        "price":3,
+        "product_id":1,
+        "product_additive_category_id":2
+    }
+}

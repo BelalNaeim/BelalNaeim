@@ -1,0 +1,16 @@
+{
+    "1": {
+        "name": {
+            "ar":"سعودي",
+            "en":"Saudi"
+        },
+        "citc_identityTypeId":"NV25GlPuOnQ="
+    },
+    "2": {
+        "name": {
+            "ar":"مصري",
+            "en":"Egyptian"
+        },
+        "citc_identityTypeId":"oIcaYzeDfQQ="
+    }
+}

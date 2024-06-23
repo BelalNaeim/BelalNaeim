@@ -1,0 +1,16 @@
+{
+    "1": {
+        "store_id":2,
+        "name": {
+            "ar":"ساندويتشات",
+            "en":"Sandwiches"
+        }
+    },
+    "2": {
+        "store_id":2,
+        "name": {
+            "ar":"كورني الدجاج",
+            "en":"Chicken Corni"
+        }
+    }
+}

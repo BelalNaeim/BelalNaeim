@@ -1,0 +1,38 @@
+{
+    "1": {
+        "name": {
+            "ar":"نقدي",
+            "en":"Cash"
+        },
+        "key":"cash",
+        "image": "image1.png",
+        "desc": {
+            "ar":"يمكنك الدفع نقدي",
+            "en":"You can pay cash"
+        }
+    },
+    "2": {
+        "name": {
+            "ar":"إلكترونياً",
+            "en":"Online"
+        },
+        "key":"online",
+        "image": "image2.png",
+        "desc": {
+            "ar":"يمكنك الدفع إلكترونياً",
+            "en":"You can pay online"
+        }
+    },
+    "3": {
+        "name": {
+            "ar":"بالمحفظة",
+            "en":"Wallet"
+        },
+        "key":"wallet",
+        "image": "image3.png",
+        "desc": {
+            "ar":"يمكنك الدفع بالمحفظة",
+            "en":"You can pay with wallet"
+        }
+    }
+}

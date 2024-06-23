@@ -1,0 +1,52 @@
+{
+    "1": {
+        "name": {
+            "ar":"فيزا",
+            "en":"VISA"
+        },
+        "brand": "VISA",
+        "image": "visa.png",
+        "is_active": "true",
+        "entity_id": "8ac7a4c771774678017177d4038b012d"
+    },
+    "2": {
+        "name": {
+            "ar":"ماستركارد",
+            "en":"MASTER"
+        },
+        "brand": "MASTER",
+        "image": "master.png",
+        "is_active": "false",
+        "entity_id": "8ac7a4c771774678017177d4038b012d"
+    },
+    "3": {
+        "name": {
+            "ar":"مدى",
+            "en":"MADA"
+        },
+        "brand": "MADA",
+        "image": "mada.png",
+        "is_active": "true",
+        "entity_id": "8ac7a4c771774678017177d52f4e0134"
+    },
+    "4": {
+        "name": {
+            "ar":"اس تي سي باي",
+            "en":"STC PAY"
+        },
+        "brand": "STC_PAY",
+        "image": "stcpay.png",
+        "is_active":"false",
+        "entity_id": null
+    },
+    "5": {
+        "name": {
+            "ar":"أبل باي",
+            "en":"APPLE PAY"
+        },
+        "brand": "APPLEPAY",
+        "image": "applepay.png",
+        "is_active":"false",
+        "entity_id": null
+    }
+}

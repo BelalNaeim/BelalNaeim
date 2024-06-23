@@ -1,0 +1,92 @@
+{
+    "1": {
+        "name": {
+            "ar": "توصيل مجاني",
+            "en": "Free delivery"
+        },
+        "image": "free_delivery.png",
+        "slug": "free_delivery",
+        "status": "true"
+    },
+    "2": {
+        "name": {
+            "ar": "توصيل طرود",
+            "en": "Parcel delivery"
+        },
+        "image": "parcel_delivery.png",
+        "slug": "parcel_delivery",
+        "status": "true"
+    },
+    "3": {
+        "name": {
+            "ar": "طلب خاص",
+            "en": "Special request"
+        },
+        "image": "special_request.png",
+        "slug": "special_request",
+        "status": "true"
+    },
+    "4": {
+        "name": {
+            "ar": "مطاعم",
+            "en": "Restaurants"
+        },
+        "image": "restaurants.png",
+        "slug": "restaurants",
+        "status": "true"
+    },
+    "5": {
+        "name": {
+            "ar": "كافيهات",
+            "en": "Cafes"
+        },
+        "image": "cafes.png",
+        "slug": "cafes",
+        "status": "true"
+    },
+    "6": {
+        "name": {
+            "ar": "سوبر ماركت",
+            "en": "Supermarket"
+        },
+        "image": "supermarket.png",
+        "slug": "supermarket",
+        "status": "true"
+    },
+    "7": {
+        "name": {
+            "ar": "حلويات",
+            "en": "Candies"
+        },
+        "image": "candies.png",
+        "slug": "candies",
+        "status": "true"
+    },
+    "8": {
+        "name": {
+            "ar": "أدوية",
+            "en": "Drugs"
+        },
+        "image": "drugs.png",
+        "slug": "drugs",
+        "status": "true"
+    },
+    "9": {
+        "name": {
+            "ar": "متاجر إلكترونية",
+            "en": "Electronics store"
+        },
+        "image": "electronics_stores.png",
+        "slug": "electronics_stores",
+        "status": "true"
+    },
+    "10": {
+        "name": {
+            "ar": "محلات ملابس",
+            "en": "Clothes shop"
+        },
+        "image": "clothes_shop.png",
+        "slug": "clothes_shop",
+        "status": "true"
+    }
+}

@@ -1,0 +1,34 @@
+{
+    "1": {
+        "properities": null,
+        "price":60,
+        "in_stock_type":"in",
+        "in_stock_sku":"p1g1",
+        "in_stock_qty":10,
+        "product_id":1
+    },
+    "2": {
+        "properities": null,
+        "price":50,
+        "in_stock_type":"in",
+        "in_stock_sku":"p2g1",
+        "in_stock_qty":11,
+        "product_id":2
+    },
+    "3": {
+        "properities": "[1]",
+        "price":50,
+        "in_stock_type":"in",
+        "in_stock_sku":"p2g1",
+        "in_stock_qty":12,
+        "product_id":2
+    },
+    "4": {
+        "properities": "[3]",
+        "price":100,
+        "in_stock_type":"in",
+        "in_stock_sku":"p2g2",
+        "in_stock_qty":13,
+        "product_id":2
+    }
+}

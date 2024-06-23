@@ -1,0 +1,72 @@
+{
+    "1": {
+        "name": {
+            "ar":"خاص",
+            "en":"Private"
+        },
+        "citc_carTypeId":"NV25GlPuOnQ="
+    },
+    "2": {
+        "name": {
+            "ar":"نقل عام",
+            "en":"Public transport"
+        },
+        "citc_carTypeId":"Nap4gA1tyeY="
+    },
+    "3": {
+        "name": {
+            "ar":"نقل خاص",
+            "en":"Private transport"
+        },
+        "citc_carTypeId":"oIcaYzeDfQQ="
+    },
+    "4": {
+        "name": {
+            "ar":"حافلة صغيرة عامة",
+            "en":"Public minibus"
+        },
+        "citc_carTypeId":"w+mTCW1569Y="
+    },
+    "5": {
+        "name": {
+            "ar":"حافلة صغيرة خاص",
+            "en":"Private minibus"
+        },
+        "citc_carTypeId":"rAy9UhMUw6Y="
+    },
+    "6": {
+        "name": {
+            "ar":"أجرة",
+            "en":"Taxi"
+        },
+        "citc_carTypeId":"A/VaSUhyG28="
+    },
+    "7": {
+        "name": {
+            "ar":"أشغال عامة",
+            "en":"Heavy equipment"
+        },
+        "citc_carTypeId":"vXChcFPkxcI="
+    },
+    "8": {
+        "name": {
+            "ar":"تصدير",
+            "en":"Export"
+        },
+        "citc_carTypeId":"7kRgMtOkdQE="
+    },
+    "9": {
+        "name": {
+            "ar":"دبلوماسي",
+            "en":"diplomat"
+        },
+        "citc_carTypeId":"cABXRPle08s="
+    },
+    "10": {
+        "name": {
+            "ar":"مؤقت",
+            "en":"Temporary"
+        },
+        "citc_carTypeId":"J4DRtp+fYEM="
+    }
+}

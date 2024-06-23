@@ -1,0 +1,42 @@
+{
+    "1": {
+        "name": {
+            "ar": "المملكة العربية السعوية",
+            "en": "Kingdom Saudi Arabia"
+        },
+        "currency": {
+            "ar": "ريال",
+            "en": "riyal"
+        },
+        "currency_code": {
+            "ar": "ر.س",
+            "en": "SAR"
+        },
+        "iso2": "SA",
+        "iso3": "SAR",
+        "active": 1,
+        "calling_code": "00966",
+        "example": "5xxxxxxx",
+        "flag": "SA.png"
+    },
+    "2": {
+        "name": {
+            "ar": "جمهورية مصر العربية",
+            "en": "Arab Republic of Egypt"
+        },
+        "currency": {
+            "ar": "جنيه مصري",
+            "en": "Egyptian pound"
+        },
+        "currency_code": {
+            "ar": "ج.م",
+            "en": "EGP"
+        },
+        "iso2": "EG",
+        "iso3": "EGT",
+        "active": 1,
+        "calling_code": "002",
+        "example": "10xxxxxxxx",
+        "flag": "EG.png"
+    }
+}

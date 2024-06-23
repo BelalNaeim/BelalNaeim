@@ -1,0 +1,15 @@
+{
+    "1": {
+        "title": {
+            "ar":"هذا النص مثال يمكن أن يستبدل.",
+            "en":"This text is an example that can be replaced."
+        },
+        "content":{
+            "ar":"هذا النص مثال يمكن أن يستبدل. هذا النص مثال يمكن أن يستبدل.",
+            "en":"This text is an example that can be replaced. This text is an example that can be replaced."
+        },
+        "image": "image.png",
+        "cover": "cover.png",
+        "expiry_date": "2022-11-30"
+    }
+}

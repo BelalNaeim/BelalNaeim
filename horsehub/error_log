@@ -1,0 +1,1 @@
+[19-Aug-2022 18:19:04 Asia/Dubai] PHP Warning:  mysqli_connect(): (08004/1040): Too many connections in /home/horsehub/public_html/bootstrap/app_db.php on line 27

@@ -1,0 +1,2861 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Laravel Documentation</title>
+
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../docs/css/theme-default.style.css" media="screen">
+    <link rel="stylesheet" href="../docs/css/theme-default.print.css" media="print">
+
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
+
+    <link rel="stylesheet"
+          href="https://unpkg.com/@highlightjs/cdn-assets@10.7.2/styles/obsidian.min.css">
+    <script src="https://unpkg.com/@highlightjs/cdn-assets@10.7.2/highlight.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jets/0.14.1/jets.min.js"></script>
+
+    <style id="language-style">
+        /* starts out as display none and is replaced with js later  */
+                    body .content .bash-example code { display: none; }
+                    body .content .javascript-example code { display: none; }
+                    body .content .php-example code { display: none; }
+                    body .content .python-example code { display: none; }
+            </style>
+
+    <script>
+        var baseUrl = "http://localhost";
+        var useCsrf = Boolean();
+        var csrfUrl = "/sanctum/csrf-cookie";
+    </script>
+    <script src="../docs/js/tryitout-3.37.2.js"></script>
+
+    <script src="../docs/js/theme-default-3.37.2.js"></script>
+
+</head>
+
+<body data-languages="[&quot;bash&quot;,&quot;javascript&quot;,&quot;php&quot;,&quot;python&quot;]">
+
+<a href="#" id="nav-button">
+    <span>
+        MENU
+        <img src="../docs/images/navbar.png" alt="navbar-image" />
+    </span>
+</a>
+<div class="tocify-wrapper">
+    
+            <div class="lang-selector">
+                                            <button type="button" class="lang-button" data-language-name="bash">bash</button>
+                                            <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
+                                            <button type="button" class="lang-button" data-language-name="php">php</button>
+                                            <button type="button" class="lang-button" data-language-name="python">python</button>
+                    </div>
+    
+    <div class="search">
+        <input type="text" class="search" id="input-search" placeholder="Search">
+    </div>
+
+    <div id="toc">
+                                                                            <ul id="tocify-header-0" class="tocify-header">
+                    <li class="tocify-item level-1" data-unique="introduction">
+                        <a href="#introduction">Introduction</a>
+                    </li>
+                                            
+                                                                    </ul>
+                                                <ul id="tocify-header-1" class="tocify-header">
+                    <li class="tocify-item level-1" data-unique="authenticating-requests">
+                        <a href="#authenticating-requests">Authenticating requests</a>
+                    </li>
+                                            
+                                                </ul>
+                    
+                    <ul id="tocify-header-2" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="auth">
+                    <a href="#auth">Auth</a>
+                </li>
+                                    <ul id="tocify-subheader-auth" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="auth-POSTapi-auth-signup">
+                        <a href="#auth-POSTapi-auth-signup">SignUp User and return JWT Token</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="auth-POSTapi-auth-login">
+                        <a href="#auth-POSTapi-auth-login">Login User and return JWT Token</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="auth-POSTapi-auth-re-verify">
+                        <a href="#auth-POSTapi-auth-re-verify">Re-Send Verification Code to User Phone / Email</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="auth-POSTapi-auth-verify">
+                        <a href="#auth-POSTapi-auth-verify">Verify User Phone / Email</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="auth-POSTapi-auth-forget">
+                        <a href="#auth-POSTapi-auth-forget">Forget Password</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="auth-POSTapi-auth-reset">
+                        <a href="#auth-POSTapi-auth-reset">Reset Password</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="auth-GETapi-auth-user">
+                        <a href="#auth-GETapi-auth-user">Get User Details</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="auth-POSTapi-auth-logout">
+                        <a href="#auth-POSTapi-auth-logout">Logging Out User.</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="auth-POSTapi-auth-update">
+                        <a href="#auth-POSTapi-auth-update">Update Profile</a>
+                    </li>
+                                                    </ul>
+                            </ul>
+                    <ul id="tocify-header-3" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="contactus">
+                    <a href="#contactus">Contactus.</a>
+                </li>
+                                    <ul id="tocify-subheader-contactus" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="contactus-POSTapi-contact">
+                        <a href="#contactus-POSTapi-contact">Submit Contact us request</a>
+                    </li>
+                                                    </ul>
+                            </ul>
+                    <ul id="tocify-header-4" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="general">
+                    <a href="#general">General</a>
+                </li>
+                                    <ul id="tocify-subheader-general" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="general-GETapi-data">
+                        <a href="#general-GETapi-data">Returns Application Needed Data</a>
+                    </li>
+                                                    </ul>
+                            </ul>
+                    <ul id="tocify-header-5" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="playgrounds">
+                    <a href="#playgrounds">Playgrounds</a>
+                </li>
+                                    <ul id="tocify-subheader-playgrounds" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="playgrounds-GETapi-playgrounds">
+                        <a href="#playgrounds-GETapi-playgrounds">GET api/playgrounds</a>
+                    </li>
+                                                    </ul>
+                            </ul>
+                    <ul id="tocify-header-6" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="reservation">
+                    <a href="#reservation">Reservation</a>
+                </li>
+                                    <ul id="tocify-subheader-reservation" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="reservation-GETapi-playgrounds-check-time">
+                        <a href="#reservation-GETapi-playgrounds-check-time">Check Available Timings.</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="reservation-POSTapi-playgrounds-reserve">
+                        <a href="#reservation-POSTapi-playgrounds-reserve">Reserve a playground.</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="reservation-POSTapi-auth-reservations">
+                        <a href="#reservation-POSTapi-auth-reservations">Get all reservations.</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="reservation-POSTapi-auth-reservations-cancel">
+                        <a href="#reservation-POSTapi-auth-reservations-cancel">Cancel Reservation.</a>
+                    </li>
+                                                    </ul>
+                            </ul>
+        
+                        
+            </div>
+
+            <ul class="toc-footer" id="toc-footer">
+                            <li><a href="../docs/collection.json">View Postman collection</a></li>
+                            <li><a href="../docs/openapi.yaml">View OpenAPI spec</a></li>
+                            <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
+                    </ul>
+        <ul class="toc-footer" id="last-updated">
+        <li>Last updated: April 19 2024</li>
+    </ul>
+</div>
+
+<div class="page-wrapper">
+    <div class="dark-box"></div>
+    <div class="content">
+        <h1 id="introduction">Introduction</h1>
+<p>This documentation aims to provide all the information you need to work with our API.</p>
+<aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
+You can switch the language used with the tabs at the top right (or from the nav menu at the top left on mobile).</aside>
+<blockquote>
+<p>Base URL</p>
+</blockquote>
+<pre><code class="language-yaml">https://tartan.aquadic.com</code></pre>
+
+        <h1 id="authenticating-requests">Authenticating requests</h1>
+<p>This API is not authenticated.</p>
+
+        <h1 id="auth">Auth</h1>
+
+    
+
+            <h2 id="auth-POSTapi-auth-signup">SignUp User and return JWT Token</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-auth-signup">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "https://tartan.aquadic.com/api/auth/signup" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"name\": \"John Doe\",
+    \"email\": \"medical@aquadic.com\",
+    \"phone\": \"+201101782890\",
+    \"password\": \"JamesBond007\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://tartan.aquadic.com/api/auth/signup"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "name": "John Doe",
+    "email": "medical@aquadic.com",
+    "phone": "+201101782890",
+    "password": "JamesBond007"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'https://tartan.aquadic.com/api/auth/signup',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'name' =&gt; 'John Doe',
+            'email' =&gt; 'medical@aquadic.com',
+            'phone' =&gt; '+201101782890',
+            'password' =&gt; 'JamesBond007',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'https://tartan.aquadic.com/api/auth/signup'
+payload = {
+    "name": "John Doe",
+    "email": "medical@aquadic.com",
+    "phone": "+201101782890",
+    "password": "JamesBond007"
+}
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-auth-signup">
+</span>
+<span id="execution-results-POSTapi-auth-signup" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-auth-signup"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-auth-signup"></code></pre>
+</span>
+<span id="execution-error-POSTapi-auth-signup" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-auth-signup"></code></pre>
+</span>
+<form id="form-POSTapi-auth-signup" data-method="POST"
+      data-path="api/auth/signup"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-auth-signup', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-auth-signup"
+                    onclick="tryItOut('POSTapi-auth-signup');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-auth-signup"
+                    onclick="cancelTryOut('POSTapi-auth-signup');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-auth-signup" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/auth/signup</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>name</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="name"
+               data-endpoint="POSTapi-auth-signup"
+               value="John Doe"
+               data-component="body" hidden>
+    <br>
+<p>User Name</p>
+        </p>
+                <p>
+            <b><code>email</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="email"
+               data-endpoint="POSTapi-auth-signup"
+               value="medical@aquadic.com"
+               data-component="body" hidden>
+    <br>
+<p>required_without:phone User Email</p>
+        </p>
+                <p>
+            <b><code>phone</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="phone"
+               data-endpoint="POSTapi-auth-signup"
+               value="+201101782890"
+               data-component="body" hidden>
+    <br>
+<p>required_without:email User Phone</p>
+        </p>
+                <p>
+            <b><code>password</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="password"
+               data-endpoint="POSTapi-auth-signup"
+               value="JamesBond007"
+               data-component="body" hidden>
+    <br>
+<p>User Password</p>
+        </p>
+        </form>
+
+            <h2 id="auth-POSTapi-auth-login">Login User and return JWT Token</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-auth-login">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "https://tartan.aquadic.com/api/auth/login" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"username\": \"medical@aquadic.com\",
+    \"password\": \"JamesBond007\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://tartan.aquadic.com/api/auth/login"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "username": "medical@aquadic.com",
+    "password": "JamesBond007"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'https://tartan.aquadic.com/api/auth/login',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'username' =&gt; 'medical@aquadic.com',
+            'password' =&gt; 'JamesBond007',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'https://tartan.aquadic.com/api/auth/login'
+payload = {
+    "username": "medical@aquadic.com",
+    "password": "JamesBond007"
+}
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-auth-login">
+</span>
+<span id="execution-results-POSTapi-auth-login" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-auth-login"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-auth-login"></code></pre>
+</span>
+<span id="execution-error-POSTapi-auth-login" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-auth-login"></code></pre>
+</span>
+<form id="form-POSTapi-auth-login" data-method="POST"
+      data-path="api/auth/login"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-auth-login', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-auth-login"
+                    onclick="tryItOut('POSTapi-auth-login');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-auth-login"
+                    onclick="cancelTryOut('POSTapi-auth-login');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-auth-login" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/auth/login</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>username</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="username"
+               data-endpoint="POSTapi-auth-login"
+               value="medical@aquadic.com"
+               data-component="body" hidden>
+    <br>
+<p>User Email/Phone</p>
+        </p>
+                <p>
+            <b><code>password</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="password"
+               data-endpoint="POSTapi-auth-login"
+               value="JamesBond007"
+               data-component="body" hidden>
+    <br>
+<p>User Password</p>
+        </p>
+        </form>
+
+            <h2 id="auth-POSTapi-auth-re-verify">Re-Send Verification Code to User Phone / Email</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-auth-re-verify">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "https://tartan.aquadic.com/api/auth/re-verify" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"email\": \"medical@aquadic.com\",
+    \"phone\": \"+201101782890\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://tartan.aquadic.com/api/auth/re-verify"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "email": "medical@aquadic.com",
+    "phone": "+201101782890"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'https://tartan.aquadic.com/api/auth/re-verify',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'email' =&gt; 'medical@aquadic.com',
+            'phone' =&gt; '+201101782890',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'https://tartan.aquadic.com/api/auth/re-verify'
+payload = {
+    "email": "medical@aquadic.com",
+    "phone": "+201101782890"
+}
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-auth-re-verify">
+</span>
+<span id="execution-results-POSTapi-auth-re-verify" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-auth-re-verify"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-auth-re-verify"></code></pre>
+</span>
+<span id="execution-error-POSTapi-auth-re-verify" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-auth-re-verify"></code></pre>
+</span>
+<form id="form-POSTapi-auth-re-verify" data-method="POST"
+      data-path="api/auth/re-verify"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-auth-re-verify', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-auth-re-verify"
+                    onclick="tryItOut('POSTapi-auth-re-verify');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-auth-re-verify"
+                    onclick="cancelTryOut('POSTapi-auth-re-verify');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-auth-re-verify" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/auth/re-verify</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>email</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="email"
+               data-endpoint="POSTapi-auth-re-verify"
+               value="medical@aquadic.com"
+               data-component="body" hidden>
+    <br>
+<p>required_without:phone User Email</p>
+        </p>
+                <p>
+            <b><code>phone</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="phone"
+               data-endpoint="POSTapi-auth-re-verify"
+               value="+201101782890"
+               data-component="body" hidden>
+    <br>
+<p>required_without:email User Phone</p>
+        </p>
+        </form>
+
+            <h2 id="auth-POSTapi-auth-verify">Verify User Phone / Email</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-auth-verify">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "https://tartan.aquadic.com/api/auth/verify" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"email\": \"medical@aquadic.com\",
+    \"phone\": \"+201101782890\",
+    \"code\": \"123456\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://tartan.aquadic.com/api/auth/verify"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "email": "medical@aquadic.com",
+    "phone": "+201101782890",
+    "code": "123456"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'https://tartan.aquadic.com/api/auth/verify',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'email' =&gt; 'medical@aquadic.com',
+            'phone' =&gt; '+201101782890',
+            'code' =&gt; '123456',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'https://tartan.aquadic.com/api/auth/verify'
+payload = {
+    "email": "medical@aquadic.com",
+    "phone": "+201101782890",
+    "code": "123456"
+}
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-auth-verify">
+</span>
+<span id="execution-results-POSTapi-auth-verify" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-auth-verify"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-auth-verify"></code></pre>
+</span>
+<span id="execution-error-POSTapi-auth-verify" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-auth-verify"></code></pre>
+</span>
+<form id="form-POSTapi-auth-verify" data-method="POST"
+      data-path="api/auth/verify"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-auth-verify', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-auth-verify"
+                    onclick="tryItOut('POSTapi-auth-verify');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-auth-verify"
+                    onclick="cancelTryOut('POSTapi-auth-verify');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-auth-verify" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/auth/verify</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>email</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="email"
+               data-endpoint="POSTapi-auth-verify"
+               value="medical@aquadic.com"
+               data-component="body" hidden>
+    <br>
+<p>required_without:phone User Email</p>
+        </p>
+                <p>
+            <b><code>phone</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="phone"
+               data-endpoint="POSTapi-auth-verify"
+               value="+201101782890"
+               data-component="body" hidden>
+    <br>
+<p>required_without:email User Phone</p>
+        </p>
+                <p>
+            <b><code>code</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="code"
+               data-endpoint="POSTapi-auth-verify"
+               value="123456"
+               data-component="body" hidden>
+    <br>
+<p>User Phone Code</p>
+        </p>
+        </form>
+
+            <h2 id="auth-POSTapi-auth-forget">Forget Password</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-auth-forget">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "https://tartan.aquadic.com/api/auth/forget" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"email\": \"medical@aquadic.com\",
+    \"phone\": \"+201101782890\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://tartan.aquadic.com/api/auth/forget"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "email": "medical@aquadic.com",
+    "phone": "+201101782890"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'https://tartan.aquadic.com/api/auth/forget',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'email' =&gt; 'medical@aquadic.com',
+            'phone' =&gt; '+201101782890',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'https://tartan.aquadic.com/api/auth/forget'
+payload = {
+    "email": "medical@aquadic.com",
+    "phone": "+201101782890"
+}
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-auth-forget">
+</span>
+<span id="execution-results-POSTapi-auth-forget" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-auth-forget"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-auth-forget"></code></pre>
+</span>
+<span id="execution-error-POSTapi-auth-forget" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-auth-forget"></code></pre>
+</span>
+<form id="form-POSTapi-auth-forget" data-method="POST"
+      data-path="api/auth/forget"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-auth-forget', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-auth-forget"
+                    onclick="tryItOut('POSTapi-auth-forget');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-auth-forget"
+                    onclick="cancelTryOut('POSTapi-auth-forget');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-auth-forget" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/auth/forget</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>email</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="email"
+               data-endpoint="POSTapi-auth-forget"
+               value="medical@aquadic.com"
+               data-component="body" hidden>
+    <br>
+<p>User Email</p>
+        </p>
+                <p>
+            <b><code>phone</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="phone"
+               data-endpoint="POSTapi-auth-forget"
+               value="+201101782890"
+               data-component="body" hidden>
+    <br>
+<p>User Phone</p>
+        </p>
+        </form>
+
+            <h2 id="auth-POSTapi-auth-reset">Reset Password</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-auth-reset">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "https://tartan.aquadic.com/api/auth/reset" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"email\": \"medical@aquadic.com\",
+    \"phone\": \"+201101782890\",
+    \"code\": \"123456\",
+    \"password\": \"123456\",
+    \"password_confirmation\": \"123456\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://tartan.aquadic.com/api/auth/reset"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "email": "medical@aquadic.com",
+    "phone": "+201101782890",
+    "code": "123456",
+    "password": "123456",
+    "password_confirmation": "123456"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'https://tartan.aquadic.com/api/auth/reset',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'email' =&gt; 'medical@aquadic.com',
+            'phone' =&gt; '+201101782890',
+            'code' =&gt; '123456',
+            'password' =&gt; '123456',
+            'password_confirmation' =&gt; '123456',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'https://tartan.aquadic.com/api/auth/reset'
+payload = {
+    "email": "medical@aquadic.com",
+    "phone": "+201101782890",
+    "code": "123456",
+    "password": "123456",
+    "password_confirmation": "123456"
+}
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-auth-reset">
+</span>
+<span id="execution-results-POSTapi-auth-reset" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-auth-reset"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-auth-reset"></code></pre>
+</span>
+<span id="execution-error-POSTapi-auth-reset" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-auth-reset"></code></pre>
+</span>
+<form id="form-POSTapi-auth-reset" data-method="POST"
+      data-path="api/auth/reset"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-auth-reset', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-auth-reset"
+                    onclick="tryItOut('POSTapi-auth-reset');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-auth-reset"
+                    onclick="cancelTryOut('POSTapi-auth-reset');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-auth-reset" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/auth/reset</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>email</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="email"
+               data-endpoint="POSTapi-auth-reset"
+               value="medical@aquadic.com"
+               data-component="body" hidden>
+    <br>
+<p>required_without:phone User Email</p>
+        </p>
+                <p>
+            <b><code>phone</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="phone"
+               data-endpoint="POSTapi-auth-reset"
+               value="+201101782890"
+               data-component="body" hidden>
+    <br>
+<p>required_without:email User Phone</p>
+        </p>
+                <p>
+            <b><code>code</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="code"
+               data-endpoint="POSTapi-auth-reset"
+               value="123456"
+               data-component="body" hidden>
+    <br>
+<p>User Phone Code</p>
+        </p>
+                <p>
+            <b><code>password</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="password"
+               data-endpoint="POSTapi-auth-reset"
+               value="123456"
+               data-component="body" hidden>
+    <br>
+<p>User Password</p>
+        </p>
+                <p>
+            <b><code>password_confirmation</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="password_confirmation"
+               data-endpoint="POSTapi-auth-reset"
+               value="123456"
+               data-component="body" hidden>
+    <br>
+<p>User Password Confirmation</p>
+        </p>
+        </form>
+
+            <h2 id="auth-GETapi-auth-user">Get User Details</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-auth-user">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "https://tartan.aquadic.com/api/auth/user" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://tartan.aquadic.com/api/auth/user"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'https://tartan.aquadic.com/api/auth/user',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'https://tartan.aquadic.com/api/auth/user'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-auth-user">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-auth-user" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-auth-user"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-auth-user"></code></pre>
+</span>
+<span id="execution-error-GETapi-auth-user" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-auth-user"></code></pre>
+</span>
+<form id="form-GETapi-auth-user" data-method="GET"
+      data-path="api/auth/user"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-auth-user', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-auth-user"
+                    onclick="tryItOut('GETapi-auth-user');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-auth-user"
+                    onclick="cancelTryOut('GETapi-auth-user');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-auth-user" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/auth/user</code></b>
+        </p>
+                <p>
+            <label id="auth-GETapi-auth-user" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="GETapi-auth-user"
+                                                                data-component="header"></label>
+        </p>
+                </form>
+
+            <h2 id="auth-POSTapi-auth-logout">Logging Out User.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-auth-logout">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "https://tartan.aquadic.com/api/auth/logout" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://tartan.aquadic.com/api/auth/logout"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'https://tartan.aquadic.com/api/auth/logout',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'https://tartan.aquadic.com/api/auth/logout'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('POST', url, headers=headers)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-auth-logout">
+</span>
+<span id="execution-results-POSTapi-auth-logout" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-auth-logout"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-auth-logout"></code></pre>
+</span>
+<span id="execution-error-POSTapi-auth-logout" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-auth-logout"></code></pre>
+</span>
+<form id="form-POSTapi-auth-logout" data-method="POST"
+      data-path="api/auth/logout"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-auth-logout', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-auth-logout"
+                    onclick="tryItOut('POSTapi-auth-logout');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-auth-logout"
+                    onclick="cancelTryOut('POSTapi-auth-logout');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-auth-logout" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/auth/logout</code></b>
+        </p>
+                <p>
+            <label id="auth-POSTapi-auth-logout" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="POSTapi-auth-logout"
+                                                                data-component="header"></label>
+        </p>
+                </form>
+
+            <h2 id="auth-POSTapi-auth-update">Update Profile</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-auth-update">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "https://tartan.aquadic.com/api/auth/update" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"name\": \"John Doe\",
+    \"email\": \"medical@aquadic.com\",
+    \"phone\": \"+201101782890\",
+    \"password\": \"123456\",
+    \"old_password\": \"spadurpmcdafbnqffgkqlzxvcvwsrivztbsrpjbfmuidfrdbshylphwmurfdmnlnoekykbzkocqlfmicszdoubqzyimkmgpsrzqilmgnmygx\",
+    \"description\": \"Best Doctor Ever.\",
+    \"profession\": \"Diet Doctor\",
+    \"work_times\": [
+        \"vero\"
+    ],
+    \"password_confirmation\": \"123456\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://tartan.aquadic.com/api/auth/update"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "name": "John Doe",
+    "email": "medical@aquadic.com",
+    "phone": "+201101782890",
+    "password": "123456",
+    "old_password": "spadurpmcdafbnqffgkqlzxvcvwsrivztbsrpjbfmuidfrdbshylphwmurfdmnlnoekykbzkocqlfmicszdoubqzyimkmgpsrzqilmgnmygx",
+    "description": "Best Doctor Ever.",
+    "profession": "Diet Doctor",
+    "work_times": [
+        "vero"
+    ],
+    "password_confirmation": "123456"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'https://tartan.aquadic.com/api/auth/update',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'name' =&gt; 'John Doe',
+            'email' =&gt; 'medical@aquadic.com',
+            'phone' =&gt; '+201101782890',
+            'password' =&gt; '123456',
+            'old_password' =&gt; 'spadurpmcdafbnqffgkqlzxvcvwsrivztbsrpjbfmuidfrdbshylphwmurfdmnlnoekykbzkocqlfmicszdoubqzyimkmgpsrzqilmgnmygx',
+            'description' =&gt; 'Best Doctor Ever.',
+            'profession' =&gt; 'Diet Doctor',
+            'work_times' =&gt; [
+                'vero',
+            ],
+            'password_confirmation' =&gt; '123456',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'https://tartan.aquadic.com/api/auth/update'
+payload = {
+    "name": "John Doe",
+    "email": "medical@aquadic.com",
+    "phone": "+201101782890",
+    "password": "123456",
+    "old_password": "spadurpmcdafbnqffgkqlzxvcvwsrivztbsrpjbfmuidfrdbshylphwmurfdmnlnoekykbzkocqlfmicszdoubqzyimkmgpsrzqilmgnmygx",
+    "description": "Best Doctor Ever.",
+    "profession": "Diet Doctor",
+    "work_times": [
+        "vero"
+    ],
+    "password_confirmation": "123456"
+}
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-auth-update">
+</span>
+<span id="execution-results-POSTapi-auth-update" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-auth-update"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-auth-update"></code></pre>
+</span>
+<span id="execution-error-POSTapi-auth-update" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-auth-update"></code></pre>
+</span>
+<form id="form-POSTapi-auth-update" data-method="POST"
+      data-path="api/auth/update"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-auth-update', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-auth-update"
+                    onclick="tryItOut('POSTapi-auth-update');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-auth-update"
+                    onclick="cancelTryOut('POSTapi-auth-update');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-auth-update" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/auth/update</code></b>
+        </p>
+                <p>
+            <label id="auth-POSTapi-auth-update" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="POSTapi-auth-update"
+                                                                data-component="header"></label>
+        </p>
+                        <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>name</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="name"
+               data-endpoint="POSTapi-auth-update"
+               value="John Doe"
+               data-component="body" hidden>
+    <br>
+<p>User Name</p>
+        </p>
+                <p>
+            <b><code>email</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="email"
+               data-endpoint="POSTapi-auth-update"
+               value="medical@aquadic.com"
+               data-component="body" hidden>
+    <br>
+<p>sometimes User Email</p>
+        </p>
+                <p>
+            <b><code>phone</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="phone"
+               data-endpoint="POSTapi-auth-update"
+               value="+201101782890"
+               data-component="body" hidden>
+    <br>
+<p>sometimes User Phone</p>
+        </p>
+                <p>
+            <b><code>password</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="password"
+               data-endpoint="POSTapi-auth-update"
+               value="123456"
+               data-component="body" hidden>
+    <br>
+<p>nullable User Password</p>
+        </p>
+                <p>
+            <b><code>old_password</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="old_password"
+               data-endpoint="POSTapi-auth-update"
+               value="spadurpmcdafbnqffgkqlzxvcvwsrivztbsrpjbfmuidfrdbshylphwmurfdmnlnoekykbzkocqlfmicszdoubqzyimkmgpsrzqilmgnmygx"
+               data-component="body" hidden>
+    <br>
+<p>حقل value مطلوب إذا توفّر <code>password</code>. يجب أن يكون طول نص حقل value على الأقل 6 حروفٍ/حرفًا. يجب أن لا يتجاوز طول نّص حقل value 256 حروفٍ/حرفًا.</p>
+        </p>
+                <p>
+            <b><code>description</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="description"
+               data-endpoint="POSTapi-auth-update"
+               value="Best Doctor Ever."
+               data-component="body" hidden>
+    <br>
+<p>sometimes Description of Doctors</p>
+        </p>
+                <p>
+            <b><code>profession</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="profession"
+               data-endpoint="POSTapi-auth-update"
+               value="Diet Doctor"
+               data-component="body" hidden>
+    <br>
+<p>sometimes Profession of Doctors</p>
+        </p>
+                <p>
+            <b><code>work_times</code></b>&nbsp;&nbsp;<small>string[]</small>  &nbsp;
+                <input type="text"
+               name="work_times[0]"
+               data-endpoint="POSTapi-auth-update"
+               data-component="body" hidden>
+        <input type="text"
+               name="work_times[1]"
+               data-endpoint="POSTapi-auth-update"
+               data-component="body" hidden>
+    <br>
+<p>Work Times for Doctors</p>
+        </p>
+                <p>
+            <b><code>password_confirmation</code></b>&nbsp;&nbsp;<small>nullable</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="password_confirmation"
+               data-endpoint="POSTapi-auth-update"
+               value="123456"
+               data-component="body" hidden>
+    <br>
+<p>User Password Confirmation</p>
+        </p>
+        </form>
+
+        <h1 id="contactus">Contactus.</h1>
+
+    
+
+            <h2 id="contactus-POSTapi-contact">Submit Contact us request</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-contact">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "https://tartan.aquadic.com/api/contact" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"name\": 11,
+    \"email\": \"ex\",
+    \"phone\": \"et\",
+    \"message\": \"et\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://tartan.aquadic.com/api/contact"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "name": 11,
+    "email": "ex",
+    "phone": "et",
+    "message": "et"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'https://tartan.aquadic.com/api/contact',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'name' =&gt; 11,
+            'email' =&gt; 'ex',
+            'phone' =&gt; 'et',
+            'message' =&gt; 'et',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'https://tartan.aquadic.com/api/contact'
+payload = {
+    "name": 11,
+    "email": "ex",
+    "phone": "et",
+    "message": "et"
+}
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-contact">
+</span>
+<span id="execution-results-POSTapi-contact" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-contact"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-contact"></code></pre>
+</span>
+<span id="execution-error-POSTapi-contact" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-contact"></code></pre>
+</span>
+<form id="form-POSTapi-contact" data-method="POST"
+      data-path="api/contact"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-contact', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-contact"
+                    onclick="tryItOut('POSTapi-contact');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-contact"
+                    onclick="cancelTryOut('POSTapi-contact');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-contact" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/contact</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>name</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="name"
+               data-endpoint="POSTapi-contact"
+               value="11"
+               data-component="body" hidden>
+    <br>
+<p>name of person.</p>
+        </p>
+                <p>
+            <b><code>email</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="email"
+               data-endpoint="POSTapi-contact"
+               value="ex"
+               data-component="body" hidden>
+    <br>
+<p>nullable email of person.</p>
+        </p>
+                <p>
+            <b><code>phone</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="phone"
+               data-endpoint="POSTapi-contact"
+               value="et"
+               data-component="body" hidden>
+    <br>
+<p>nullable phone of person.</p>
+        </p>
+                <p>
+            <b><code>message</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="message"
+               data-endpoint="POSTapi-contact"
+               value="et"
+               data-component="body" hidden>
+    <br>
+<p>message of person.</p>
+        </p>
+        </form>
+
+        <h1 id="general">General</h1>
+
+    
+
+            <h2 id="general-GETapi-data">Returns Application Needed Data</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-data">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "https://tartan.aquadic.com/api/data" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://tartan.aquadic.com/api/data"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'https://tartan.aquadic.com/api/data',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'https://tartan.aquadic.com/api/data'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-data">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
+access-control-allow-origin: *
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;about_ar&quot;: &quot;عن Laravel&quot;,
+    &quot;about_en&quot;: &quot;about Laravel&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-data" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-data"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-data"></code></pre>
+</span>
+<span id="execution-error-GETapi-data" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-data"></code></pre>
+</span>
+<form id="form-GETapi-data" data-method="GET"
+      data-path="api/data"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-data', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-data"
+                    onclick="tryItOut('GETapi-data');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-data"
+                    onclick="cancelTryOut('GETapi-data');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-data" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/data</code></b>
+        </p>
+                    </form>
+
+        <h1 id="playgrounds">Playgrounds</h1>
+
+    
+
+            <h2 id="playgrounds-GETapi-playgrounds">GET api/playgrounds</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-playgrounds">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "https://tartan.aquadic.com/api/playgrounds?keyword=%22Somuha%22.&amp;lat=%2231.5656%22.&amp;lng=%22-29.5656%22.&amp;city_id=%221%22.&amp;area_id=%222%22.&amp;time=%2212%3A00%3A00%22." \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://tartan.aquadic.com/api/playgrounds"
+);
+
+const params = {
+    "keyword": ""Somuha".",
+    "lat": ""31.5656".",
+    "lng": ""-29.5656".",
+    "city_id": ""1".",
+    "area_id": ""2".",
+    "time": ""12:00:00".",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'https://tartan.aquadic.com/api/playgrounds',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'query' =&gt; [
+            'keyword'=&gt; '"Somuha".',
+            'lat'=&gt; '"31.5656".',
+            'lng'=&gt; '"-29.5656".',
+            'city_id'=&gt; '"1".',
+            'area_id'=&gt; '"2".',
+            'time'=&gt; '"12:00:00".',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'https://tartan.aquadic.com/api/playgrounds'
+params = {
+  'keyword': '"Somuha".',
+  'lat': '"31.5656".',
+  'lng': '"-29.5656".',
+  'city_id': '"1".',
+  'area_id': '"2".',
+  'time': '"12:00:00".',
+}
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('GET', url, headers=headers, params=params)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-playgrounds">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 58
+access-control-allow-origin: *
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;current_page&quot;: 1,
+    &quot;data&quot;: [],
+    &quot;first_page_url&quot;: &quot;http://localhost/api/playgrounds?page=1&quot;,
+    &quot;from&quot;: null,
+    &quot;next_page_url&quot;: null,
+    &quot;path&quot;: &quot;http://localhost/api/playgrounds&quot;,
+    &quot;per_page&quot;: 15,
+    &quot;prev_page_url&quot;: null,
+    &quot;to&quot;: null
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-playgrounds" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-playgrounds"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-playgrounds"></code></pre>
+</span>
+<span id="execution-error-GETapi-playgrounds" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-playgrounds"></code></pre>
+</span>
+<form id="form-GETapi-playgrounds" data-method="GET"
+      data-path="api/playgrounds"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-playgrounds', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-playgrounds"
+                    onclick="tryItOut('GETapi-playgrounds');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-playgrounds"
+                    onclick="cancelTryOut('GETapi-playgrounds');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-playgrounds" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/playgrounds</code></b>
+        </p>
+                        <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+                    <p>
+                <b><code>keyword</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="keyword"
+               data-endpoint="GETapi-playgrounds"
+               value=""Somuha"."
+               data-component="query" hidden>
+    <br>
+<p>optional The playground name.</p>
+            </p>
+                    <p>
+                <b><code>lat</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="lat"
+               data-endpoint="GETapi-playgrounds"
+               value=""31.5656"."
+               data-component="query" hidden>
+    <br>
+<p>optional The lat of the client.</p>
+            </p>
+                    <p>
+                <b><code>lng</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="lng"
+               data-endpoint="GETapi-playgrounds"
+               value=""-29.5656"."
+               data-component="query" hidden>
+    <br>
+<p>optional The lng of the client.</p>
+            </p>
+                    <p>
+                <b><code>city_id</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="city_id"
+               data-endpoint="GETapi-playgrounds"
+               value=""1"."
+               data-component="query" hidden>
+    <br>
+<p>optional The id of the city.</p>
+            </p>
+                    <p>
+                <b><code>area_id</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="area_id"
+               data-endpoint="GETapi-playgrounds"
+               value=""2"."
+               data-component="query" hidden>
+    <br>
+<p>optional The id of the city.</p>
+            </p>
+                    <p>
+                <b><code>time</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="time"
+               data-endpoint="GETapi-playgrounds"
+               value=""12:00:00"."
+               data-component="query" hidden>
+    <br>
+<p>optional The time of the reservation.</p>
+            </p>
+                </form>
+
+        <h1 id="reservation">Reservation</h1>
+
+    
+
+            <h2 id="reservation-GETapi-playgrounds-check-time">Check Available Timings.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-playgrounds-check-time">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "https://tartan.aquadic.com/api/playgrounds/check-time" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"playground_id\": 0,
+    \"date\": \"\\\"2020-01-01\\\".\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://tartan.aquadic.com/api/playgrounds/check-time"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "playground_id": 0,
+    "date": "\"2020-01-01\"."
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'https://tartan.aquadic.com/api/playgrounds/check-time',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'playground_id' =&gt; 0,
+            'date' =&gt; '"2020-01-01".',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'https://tartan.aquadic.com/api/playgrounds/check-time'
+payload = {
+    "playground_id": 0,
+    "date": "\"2020-01-01\"."
+}
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('GET', url, headers=headers, json=payload)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-playgrounds-check-time">
+            <blockquote>
+            <p>Example response (422):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 57
+access-control-allow-origin: *
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;القيمة المحددة playground id غير موجودة. (and 2 more errors)&quot;,
+    &quot;errors&quot;: {
+        &quot;playground_id&quot;: [
+            &quot;القيمة المحددة playground id غير موجودة.&quot;
+        ],
+        &quot;date&quot;: [
+            &quot;حقل date ليس تاريخًا صحيحًا.&quot;,
+            &quot;يجب على حقل date أن يكون تاريخًا لاحقًا للتاريخ yesterday.&quot;
+        ]
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-playgrounds-check-time" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-playgrounds-check-time"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-playgrounds-check-time"></code></pre>
+</span>
+<span id="execution-error-GETapi-playgrounds-check-time" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-playgrounds-check-time"></code></pre>
+</span>
+<form id="form-GETapi-playgrounds-check-time" data-method="GET"
+      data-path="api/playgrounds/check-time"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-playgrounds-check-time', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-playgrounds-check-time"
+                    onclick="tryItOut('GETapi-playgrounds-check-time');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-playgrounds-check-time"
+                    onclick="cancelTryOut('GETapi-playgrounds-check-time');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-playgrounds-check-time" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/playgrounds/check-time</code></b>
+        </p>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/playgrounds/check-time</code></b>
+        </p>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/playgrounds/check-time</code></b>
+        </p>
+            <p>
+            <small class="badge badge-purple">PATCH</small>
+            <b><code>api/playgrounds/check-time</code></b>
+        </p>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/playgrounds/check-time</code></b>
+        </p>
+            <p>
+            <small class="badge badge-grey">OPTIONS</small>
+            <b><code>api/playgrounds/check-time</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>playground_id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="playground_id"
+               data-endpoint="GETapi-playgrounds-check-time"
+               value="0"
+               data-component="body" hidden>
+    <br>
+<p>The playground id.</p>
+        </p>
+                <p>
+            <b><code>date</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="date"
+               data-endpoint="GETapi-playgrounds-check-time"
+               value=""2020-01-01"."
+               data-component="body" hidden>
+    <br>
+<p>The date of the reservation.</p>
+        </p>
+        </form>
+
+            <h2 id="reservation-POSTapi-playgrounds-reserve">Reserve a playground.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-playgrounds-reserve">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "https://tartan.aquadic.com/api/playgrounds/reserve" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"playground_id\": 0,
+    \"date\": \"\\\"2020-01-01\\\".\",
+    \"time\": \"\\\"00:00:00\\\".\",
+    \"times\": [
+        \"tenetur\"
+    ],
+    \"payment_method\": \"cash\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://tartan.aquadic.com/api/playgrounds/reserve"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "playground_id": 0,
+    "date": "\"2020-01-01\".",
+    "time": "\"00:00:00\".",
+    "times": [
+        "tenetur"
+    ],
+    "payment_method": "cash"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'https://tartan.aquadic.com/api/playgrounds/reserve',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'playground_id' =&gt; 0,
+            'date' =&gt; '"2020-01-01".',
+            'time' =&gt; '"00:00:00".',
+            'times' =&gt; [
+                'tenetur',
+            ],
+            'payment_method' =&gt; 'cash',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'https://tartan.aquadic.com/api/playgrounds/reserve'
+payload = {
+    "playground_id": 0,
+    "date": "\"2020-01-01\".",
+    "time": "\"00:00:00\".",
+    "times": [
+        "tenetur"
+    ],
+    "payment_method": "cash"
+}
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-playgrounds-reserve">
+</span>
+<span id="execution-results-POSTapi-playgrounds-reserve" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-playgrounds-reserve"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-playgrounds-reserve"></code></pre>
+</span>
+<span id="execution-error-POSTapi-playgrounds-reserve" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-playgrounds-reserve"></code></pre>
+</span>
+<form id="form-POSTapi-playgrounds-reserve" data-method="POST"
+      data-path="api/playgrounds/reserve"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-playgrounds-reserve', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-playgrounds-reserve"
+                    onclick="tryItOut('POSTapi-playgrounds-reserve');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-playgrounds-reserve"
+                    onclick="cancelTryOut('POSTapi-playgrounds-reserve');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-playgrounds-reserve" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/playgrounds/reserve</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>playground_id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="playground_id"
+               data-endpoint="POSTapi-playgrounds-reserve"
+               value="0"
+               data-component="body" hidden>
+    <br>
+<p>The playground id.</p>
+        </p>
+                <p>
+            <b><code>date</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="date"
+               data-endpoint="POSTapi-playgrounds-reserve"
+               value=""2020-01-01"."
+               data-component="body" hidden>
+    <br>
+<p>The date of the reservation.</p>
+        </p>
+                <p>
+            <b><code>time</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="time"
+               data-endpoint="POSTapi-playgrounds-reserve"
+               value=""00:00:00"."
+               data-component="body" hidden>
+    <br>
+<p>required_without:times The time of the reservation.</p>
+        </p>
+                <p>
+            <b><code>times</code></b>&nbsp;&nbsp;<small>string[]</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="times[0]"
+               data-endpoint="POSTapi-playgrounds-reserve"
+               data-component="body" hidden>
+        <input type="text"
+               name="times[1]"
+               data-endpoint="POSTapi-playgrounds-reserve"
+               data-component="body" hidden>
+    <br>
+<p>required_without:time The times (as array) of the reservation.</p>
+        </p>
+                <p>
+            <b><code>payment_method</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="payment_method"
+               data-endpoint="POSTapi-playgrounds-reserve"
+               value="cash"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>cash</code>.</p>
+        </p>
+        </form>
+
+            <h2 id="reservation-POSTapi-auth-reservations">Get all reservations.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-auth-reservations">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "https://tartan.aquadic.com/api/auth/reservations" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://tartan.aquadic.com/api/auth/reservations"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'https://tartan.aquadic.com/api/auth/reservations',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'https://tartan.aquadic.com/api/auth/reservations'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('POST', url, headers=headers)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-auth-reservations">
+</span>
+<span id="execution-results-POSTapi-auth-reservations" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-auth-reservations"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-auth-reservations"></code></pre>
+</span>
+<span id="execution-error-POSTapi-auth-reservations" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-auth-reservations"></code></pre>
+</span>
+<form id="form-POSTapi-auth-reservations" data-method="POST"
+      data-path="api/auth/reservations"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-auth-reservations', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-auth-reservations"
+                    onclick="tryItOut('POSTapi-auth-reservations');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-auth-reservations"
+                    onclick="cancelTryOut('POSTapi-auth-reservations');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-auth-reservations" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/auth/reservations</code></b>
+        </p>
+                    </form>
+
+            <h2 id="reservation-POSTapi-auth-reservations-cancel">Cancel Reservation.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-auth-reservations-cancel">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "https://tartan.aquadic.com/api/auth/reservations/cancel" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"reservation_id\": 0
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://tartan.aquadic.com/api/auth/reservations/cancel"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "reservation_id": 0
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'https://tartan.aquadic.com/api/auth/reservations/cancel',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'reservation_id' =&gt; 0,
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="python-example">
+    <pre><code class="language-python">import requests
+import json
+
+url = 'https://tartan.aquadic.com/api/auth/reservations/cancel'
+payload = {
+    "reservation_id": 0
+}
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-auth-reservations-cancel">
+</span>
+<span id="execution-results-POSTapi-auth-reservations-cancel" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-auth-reservations-cancel"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-auth-reservations-cancel"></code></pre>
+</span>
+<span id="execution-error-POSTapi-auth-reservations-cancel" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-auth-reservations-cancel"></code></pre>
+</span>
+<form id="form-POSTapi-auth-reservations-cancel" data-method="POST"
+      data-path="api/auth/reservations/cancel"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-auth-reservations-cancel', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-auth-reservations-cancel"
+                    onclick="tryItOut('POSTapi-auth-reservations-cancel');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-auth-reservations-cancel"
+                    onclick="cancelTryOut('POSTapi-auth-reservations-cancel');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-auth-reservations-cancel" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/auth/reservations/cancel</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>reservation_id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="reservation_id"
+               data-endpoint="POSTapi-auth-reservations-cancel"
+               value="0"
+               data-component="body" hidden>
+    <br>
+<p>The reservation id.</p>
+        </p>
+        </form>
+
+    
+
+        
+    </div>
+    <div class="dark-box">
+                    <div class="lang-selector">
+                                                        <button type="button" class="lang-button" data-language-name="bash">bash</button>
+                                                        <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
+                                                        <button type="button" class="lang-button" data-language-name="php">php</button>
+                                                        <button type="button" class="lang-button" data-language-name="python">python</button>
+                            </div>
+            </div>
+</div>
+</body>
+</html>

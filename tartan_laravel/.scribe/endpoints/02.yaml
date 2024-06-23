@@ -1,0 +1,30 @@
+name: General
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/data
+    metadata:
+      title: 'Returns Application Needed Data'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"about_ar":"\u0639\u0646 Laravel","about_en":"about Laravel"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '59'
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []

@@ -1,0 +1,4 @@
+[06-May-2022 22:33:40 UTC] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Http\Kernel' not found in /home/customer/www/madinaprojects.com/public_html/app/Http/Kernel.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/customer/www/madinaprojects.com/public_html/app/Http/Kernel.php on line 7

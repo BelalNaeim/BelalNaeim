@@ -1,0 +1,132 @@
+<?php
+
+namespace App\Http\Controllers\Backend;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Image;
+
+
+class AdsController extends Controller
+{
+    //
+    public function ListAds(){
+        $ads = DB::table('advertisments')->orderBy('id', 'desc')->get();
+        return view('backend.ads.listads', compact('ads'));
+    }
+
+    public function AddAds(){
+        return view('backend.ads.add_ads');
+        
+    }
+
+    public function StoreAds(Request $request){
+
+        $data = array();
+        $data['link'] = $request->link;
+      
+       if ($request->type == 2) {
+            
+               $image = $request->ads;
+               
+                  $image_one = uniqid().'.'.$image->getClientOriginalExtension(); 
+                  Image::make($image)->resize(970,90)->save('image/ads/'.$image_one);
+                  $data['ads'] = 'image/ads/'.$image_one;
+                  // image/photogallery/343434.png
+                  $data['type'] = 2;
+                  DB::table('advertisments')->insert($data);
+   
+   
+                  $notification = array(
+                'message' => 'Harizontal Ads Inserted Successfully',
+                'alert-type' => 'success'
+            );
+   
+            return Redirect()->route('list.add')->with($notification);
+   
+       }else{
+   
+              $image = $request->ads;
+               
+                  $image_one = uniqid().'.'.$image->getClientOriginalExtension(); 
+                  Image::make($image)->resize(500,500)->save('image/ads/'.$image_one);
+                  $data['ads'] = 'image/ads/'.$image_one;
+                  // image/photogallery/343434.png
+                  $data['type'] = 1;
+                  DB::table('advertisments')->insert($data);
+   
+   
+                  $notification = array(
+                'message' => 'Vertical Ads Inserted Successfully',
+                'alert-type' => 'info'
+            );
+   
+            return Redirect()->route('list.add')->with($notification);
+       
+       }
+   
+    } // End Method
+
+    public function EditAds($id){
+        return view('backend.ads.edit_ads');
+    }
+
+    public function UpdateAds(Request $request){
+
+        $data = array();
+        $data['link'] = $request->link;
+      
+       if ($request->type == 2) {
+            
+               $image = $request->ads;
+               
+                  $image_one = uniqid().'.'.$image->getClientOriginalExtension(); 
+                  Image::make($image)->resize(970,90)->save('image/ads/'.$image_one);
+                  $data['ads'] = 'image/ads/'.$image_one;
+                  // image/photogallery/343434.png
+                  $data['type'] = 2;
+                  DB::table('advertisments')->update($data);
+   
+   
+                  $notification = array(
+                'message' => 'Harizontal Ads Inserted Successfully',
+                'alert-type' => 'success'
+            );
+   
+            return Redirect()->route('list.add')->with($notification);
+   
+       }else{
+   
+              $image = $request->ads;
+               
+                  $image_one = uniqid().'.'.$image->getClientOriginalExtension(); 
+                  Image::make($image)->resize(500,500)->save('image/ads/'.$image_one);
+                  $data['ads'] = 'image/ads/'.$image_one;
+                  // image/photogallery/343434.png
+                  $data['type'] = 1;
+                  DB::table('advertisments')->update($data);
+   
+   
+                  $notification = array(
+                'message' => 'Vertical Ads Inserted Successfully',
+                'alert-type' => 'info'
+            );
+   
+            return Redirect()->route('list.add')->with($notification);
+       
+       }
+   
+    } // End Method
+   
+
+    public function DeleteAds($id){
+        DB::table('advertisments')->where('id', $id)->delete();
+        $notification = array(
+            'message' => 'Vertical Ads Inserted Successfully',
+            'alert-type' => 'info'
+        );
+
+        return Redirect()->route('list.add')->with($notification);
+    }
+}

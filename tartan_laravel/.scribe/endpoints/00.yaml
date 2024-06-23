@@ -1,0 +1,354 @@
+name: Auth
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/auth/signup
+    metadata:
+      title: 'SignUp User and return JWT Token'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'User Name'
+        required: true
+        example: 'John Doe'
+        type: string
+        custom: []
+      email:
+        name: email
+        description: 'required_without:phone User Email'
+        required: false
+        example: medical@aquadic.com
+        type: string
+        custom: []
+      phone:
+        name: phone
+        description: 'required_without:email User Phone'
+        required: false
+        example: '+201101782890'
+        type: string
+        custom: []
+      password:
+        name: password
+        description: 'User Password'
+        required: true
+        example: JamesBond007
+        type: string
+        custom: []
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/auth/login
+    metadata:
+      title: 'Login User and return JWT Token'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      username:
+        name: username
+        description: 'User Email/Phone'
+        required: true
+        example: medical@aquadic.com
+        type: string
+        custom: []
+      password:
+        name: password
+        description: 'User Password'
+        required: true
+        example: JamesBond007
+        type: string
+        custom: []
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/auth/re-verify
+    metadata:
+      title: 'Re-Send Verification Code to User Phone / Email'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      email:
+        name: email
+        description: 'required_without:phone User Email'
+        required: false
+        example: medical@aquadic.com
+        type: string
+        custom: []
+      phone:
+        name: phone
+        description: 'required_without:email User Phone'
+        required: false
+        example: '+201101782890'
+        type: string
+        custom: []
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/auth/verify
+    metadata:
+      title: 'Verify User Phone / Email'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      email:
+        name: email
+        description: 'required_without:phone User Email'
+        required: false
+        example: medical@aquadic.com
+        type: string
+        custom: []
+      phone:
+        name: phone
+        description: 'required_without:email User Phone'
+        required: false
+        example: '+201101782890'
+        type: string
+        custom: []
+      code:
+        name: code
+        description: 'User Phone Code'
+        required: true
+        example: '123456'
+        type: string
+        custom: []
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/auth/forget
+    metadata:
+      title: 'Forget Password'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      email:
+        name: email
+        description: 'User Email'
+        required: true
+        example: medical@aquadic.com
+        type: string
+        custom: []
+      phone:
+        name: phone
+        description: 'User Phone'
+        required: true
+        example: '+201101782890'
+        type: string
+        custom: []
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/auth/reset
+    metadata:
+      title: 'Reset Password'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      email:
+        name: email
+        description: 'required_without:phone User Email'
+        required: false
+        example: medical@aquadic.com
+        type: string
+        custom: []
+      phone:
+        name: phone
+        description: 'required_without:email User Phone'
+        required: false
+        example: '+201101782890'
+        type: string
+        custom: []
+      code:
+        name: code
+        description: 'User Phone Code'
+        required: true
+        example: '123456'
+        type: string
+        custom: []
+      password:
+        name: password
+        description: 'User Password'
+        required: true
+        example: '123456'
+        type: string
+        custom: []
+      password_confirmation:
+        name: password_confirmation
+        description: 'User Password Confirmation'
+        required: true
+        example: '123456'
+        type: string
+        custom: []
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: api/auth/user
+    metadata:
+      title: 'Get User Details'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/auth/logout
+    metadata:
+      title: 'Logging Out User.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters: []
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/auth/update
+    metadata:
+      title: 'Update Profile'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'User Name'
+        required: true
+        example: 'John Doe'
+        type: string
+        custom: []
+      email:
+        name: email
+        description: 'sometimes User Email'
+        required: false
+        example: medical@aquadic.com
+        type: string
+        custom: []
+      phone:
+        name: phone
+        description: 'sometimes User Phone'
+        required: false
+        example: '+201101782890'
+        type: string
+        custom: []
+      password:
+        name: password
+        description: 'nullable User Password'
+        required: false
+        example: '123456'
+        type: string
+        custom: []
+      old_password:
+        name: old_password
+        description: 'حقل value مطلوب إذا توفّر <code>password</code>. يجب أن يكون طول نص حقل value على الأقل 6 حروفٍ/حرفًا. يجب أن لا يتجاوز طول نّص حقل value 256 حروفٍ/حرفًا.'
+        required: false
+        example: spadurpmcdafbnqffgkqlzxvcvwsrivztbsrpjbfmuidfrdbshylphwmurfdmnlnoekykbzkocqlfmicszdoubqzyimkmgpsrzqilmgnmygx
+        type: string
+        custom: []
+      description:
+        name: description
+        description: 'sometimes Description of Doctors'
+        required: false
+        example: 'Best Doctor Ever.'
+        type: string
+        custom: []
+      profession:
+        name: profession
+        description: 'sometimes Profession of Doctors'
+        required: false
+        example: 'Diet Doctor'
+        type: string
+        custom: []
+      work_times:
+        name: work_times
+        description: 'Work Times for Doctors'
+        required: true
+        example:
+          - vero
+        type: 'string[]'
+        custom: []
+      password_confirmation:
+        name: password_confirmation
+        description: 'User Password Confirmation'
+        required: false
+        example: '123456'
+        type: nullable
+        custom: []
+    responses: []
+    responseFields: []
