@@ -51,11 +51,12 @@
   <a href="@Belal_Naeim" target="_blank">
     <img src="https://img.shields.io/static/v1?message=Telegram&logo=telegram&label=&color=2CA5E0&logoColor=white&labelColor=&style=for-the-badge" height="35" alt="telegram logo"  />
   </a>
-  <a href="<a aria-label="Chat on WhatsApp" href="https://wa.me/1099812636"> <img alt="Chat on WhatsApp" src="WhatsAppButtonGreenLarge.png" /> <a />" target="_blank">
-    <img src="https://img.shields.io/static/v1?message=Whatsapp&logo=whatsapp&label=&color=25D366&logoColor=white&labelColor=&style=for-the-badge" height="35" alt="whatsapp logo"  />
-  </a>
+
 
 </div>
+
+<a aria-label="Chat on WhatsApp" href="https://wa.me/1099812636"> <img alt="Chat on WhatsApp" src="WhatsAppButtonGreenLarge.png" />
+<a />
 
 ###
 
