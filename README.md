@@ -6,6 +6,31 @@
 
 ###
 
+
+<p align="left"> <img src="https://komarev.com/ghpvc/?username=belalnaeim&label=Profile%20views&color=0e75b6&style=flat" alt="belalnaeim" /> </p>
+
+<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=belalnaeim" alt="belalnaeim" /></a> </p>
+
+<p align="left"> <a href="https://twitter.com/belalrizk2" target="blank"><img src="https://img.shields.io/twitter/follow/belalrizk2?logo=twitter&style=for-the-badge" alt="belalrizk2" /></a> </p>
+
+- 🔭 I’m currently working as **Freelancer**
+
+- 🌱 I’m currently learning **javascript frameworks**
+
+- 👯 I’m looking to collaborate on **full time job**
+
+- 👨‍💻 All of my projects are available at [http://belalnaeim.epizy.com/](http://belalnaeim.epizy.com/)
+
+- 💬 Ask me about **PHP and Laravel**
+
+- 📫 How to reach me **belal.naeem@yahoo.com**
+
+- 📄 Know about my experiences [https://drive.google.com/drive/my-drive](https://drive.google.com/drive/my-drive)
+
+- ⚡ Fun fact **I love to draw and play Station**
+
+<h3 align="left">Connect with me:</h3>
+
 <div align="left">
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="30" alt="javascript logo"  />
   <img width="12" />
@@ -56,29 +81,8 @@
   <img src="https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/master/src/assets/icons/social/devto/default.svg" width="52" height="40" alt="devto logo"  />
 </div>
 
-###
 
-<br clear="both">
 
-<div align="left">
-  <img src="https://github-read-medium-git-main.pahlevikun.vercel.app/latest?limit=4&theme=dark" alt="Layout with last medium posts"  />
-</div>
-
-###
-
-<br clear="both">
-
-<div align="left">
-  <img src="https://github-read-medium-git-main.pahlevikun.vercel.app/latest?limit=4&theme=dark" alt="Layout with last medium posts"  />
-</div>
-
-###
-
-<div align="center">
-  <img src="https://spotify-recently-played-readme.vercel.app/api?count=5" alt="Spotify recently played"  />
-</div>
-
-###
 
 <div align="center">
   <img height="200" src="https://scontent.fcai19-3.fna.fbcdn.net/v/t39.30808-6/418870384_6707884465990410_6084161716213685789_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_ohc=VaHqNdlB8YYQ7kNvgHiySQe&_nc_ht=scontent.fcai19-3.fna&oh=00_AYCO5yff9FX9SNIJ9T8vnfWFLIvjEJ64_0AgB_ferc-hNQ&oe=667E1B4D""  />
