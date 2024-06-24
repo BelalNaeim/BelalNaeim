@@ -55,14 +55,7 @@
 
 </div>
 
-<a aria-label="Chat on WhatsApp" href="https://wa.me/1099812636"> <img alt="Chat on WhatsApp" src="WhatsAppButtonGreenLarge.png" />
-<a />
-
-
-
 <p align="left">Hello World!!</p>
-
-###
 
 <div align="left">
   
